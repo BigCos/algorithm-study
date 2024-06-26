@@ -1,0 +1,10 @@
+a = int(input()) 
+b = int(input())
+x1 = a * (b%10)
+print(x1)
+x2 = a * (b%100//10)
+print(x2)
+x3 = a * (b//100)
+print(x3)
+x4 = a*b 
+print(x4)
