@@ -1,21 +1,19 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class 개미_10158{
+public class Baekjoon_10158{
     public static void main(String[] args)throws Exception{
     
         //현위치
         int px; int py;
         //끝지점 
-        int endX; int endY;
-        //이동 방향
-        int dirx = 1; int diry = 1;
+        int w; int h;
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String[] st = br.readLine().split(" ");
-        endX = Integer.parseInt(st[0]);
-        endY = Integer.parseInt(st[1]);
+        w = Integer.parseInt(st[0]);
+        h = Integer.parseInt(st[1]);
 
         st = br.readLine().split(" ");
         px = Integer.parseInt(st[0]);
@@ -23,39 +21,10 @@ public class 개미_10158{
 
         //이동 횟수 
         int t = Integer.parseInt(br.readLine());
-
-        while(t > 0 ){
-            int dx = dirx * (endX * (1+dirx)/2 - px);
-            int dy = diry * (endY * (1+diry)/2 - py);
-
-            if(t < dx || t < dy){
-                px+= dirx * t;
-                pt+= diry * t;
-                break;
-            }
-
-            if(dx > dy){
-                px+= dirx * dy; py+= diry * dy;
-                diry*= -1;
-                t-= dy;
-            }
-
-            else if(dx < dy){
-                px+= dirx * dx; py+= diry * dx;
-                dirx*= -1;
-                t-= dx;
-            }
-
-            else{
-                px+= dirx * dx; py+= diry * dy;
-                diry *= -1;
-                dirx*= -1;
-                t-= dx;
-            }
-
-            t-=
-            
-        }
+        
+        
+        px = w - Math.abs(w - (px+t)%(2*w));
+        py = h - Math.abs(h - (py+t)%(2*h));
 
         System.out.println(px + " " + py);
     }
